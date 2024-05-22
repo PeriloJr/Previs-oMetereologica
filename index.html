@@ -9,11 +9,25 @@
 </head>
 <body>
     <div id="map" class="map"></div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="cityName" class="modalParagraph"></p>
+          <p id="weatherTypeLabel" class="modalParagraph"></p>
+          <img src="" id="weatherTypeIcon" class="modalIcons">
+          <p id="maxTemperature" class="modalParagraph"></p>
+          <p id="minTemperature" class="modalParagraph"></p>
+          <p id="moonPhaseLabel" class="modalParagraph"></p> 
+          <img src="" id="moonPhaseIcon" class="modalIcons">
+        </div>
+      
+      </div>
     <footer>
-        <input type="text" id="location" placeholder="Enter location">
+        <input type="text" id="location" placeholder="Cidade">
         <select id="options">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
+            <option value="dummy">Nenhum selecionado</option>
         </select>
         <button id="consult">Consultar</button>
     </footer>
