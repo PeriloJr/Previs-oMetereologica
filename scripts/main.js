@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const _moonIconUrl = "https://assets.hgbrasil.com/weather/icons/moon/";
     const _weatherType = "https://assets.hgbrasil.com/weather/icons/conditions/";
+    const _errorPopup = document.getElementById('error-popup');
+
 
     const layer = new ol.layer.Tile({
         source: new ol.source.OSM()
@@ -21,6 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             center: ol.proj.fromLonLat([-0.1276, 51.5074]), 
             zoom: 10
         })
+    });
+    
+    function displayErrorMessage(message) {
+        const errorMessageElement = document.getElementById('error-message');
+        errorMessageElement.textContent = message;
+        _errorPopup.style.display = 'block';
+    }
+
+    _errorPopup.addEventListener('mousemove', function() {
+        _errorPopup.style.display = 'none';
     });
     
     const BuildApiUrl = (isGeoLocationUrl) =>{
@@ -47,12 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Problema de comunicação com API');
             }
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
             throw error;
         }
     }
@@ -102,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             FillDataInformations(WeatherInformations);
 
         }catch(error){
-            console.error('Error fetching city information:', error);
+            displayErrorMessage(error.message);
+            console.error('Erro ao buscar cidade:', error);
         }
 
         var span = document.getElementsByClassName("close")[0];
@@ -114,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target == modal) {
               modal.style.display = "none";
             }}
+        
     });
-
-
 });
