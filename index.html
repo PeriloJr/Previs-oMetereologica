@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenLayers Map</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@9.2.2/dist/ol.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
 </head>
 <body>
@@ -15,17 +16,26 @@
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <p id="cityName" class="modalParagraph"></p>
-          <p id="weatherTypeLabel" class="modalParagraph"></p>
-          <img src="" id="weatherTypeIcon" class="modalIcons">
-          <p id="maxTemperature" class="modalParagraph"></p>
-          <p id="minTemperature" class="modalParagraph"></p>
-          <p id="moonPhaseLabel" class="modalParagraph"></p> 
-          <img src="" id="moonPhaseIcon" class="modalIcons">
+            <span class="close">&times;</span>
+            <div class="weather-info">
+                <p id="cityName" class="modalParagraph"></p>
+            </div>
+            <div class="weather-info">
+                <p id="weatherTypeLabel" class="modalParagraph"></p>
+                <img src="" id="weatherTypeIcon" class="modalIcons">
+            </div>
+            <div class="weather-info">
+                <p id="maxTemperature" class="modalParagraph"></p>
+            </div>
+            <div class="weather-info">
+                <p id="minTemperature" class="modalParagraph"></p>
+            </div>
+            <div class="moon-info">
+                <p id="moonPhaseLabel" class="modalParagraph"></p> 
+                <img src="" id="moonPhaseIcon" class="modalIcons">
+            </div>
         </div>
     </div>
-
     <footer>
         <input type="text" id="location" placeholder="Cidade">
         <select id="options">
