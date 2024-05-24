@@ -11,6 +11,7 @@ Certifique-se de ter um navegador web instalado em seu computador, como Google C
 ### Passos para Execução
 
 1. **Liberação de acesso CORS**
+
 Acesse o endereço: https://cors-anywhere.herokuapp.com/corsdemo
 E pressione o botão "Request temporary access to the demo server" para liberação
 
