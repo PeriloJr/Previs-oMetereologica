@@ -19,12 +19,16 @@ E pressione o botão "Request temporary access to the demo server" para liberaç
 2. **Clone o repositório:**
    
 Abra o terminal ou prompt de comando e execute o seguinte comando para clonar o repositório:
+
 git clone https://github.com/PeriloJr/Previs-oMetereologica.git
 
 3. **Acesse o diretório do projeto:**
 
 Navegue para o diretório recém-clonado:
+
 cd previsao-do-tempo
+
+Alternativamente, poderá acessar sua pasta de clone navegando com auxílio do mouse no explorador de arquivos do sistema.
 
 4. **Abra o arquivo `index.html` em um navegador:**
 
