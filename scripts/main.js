@@ -1,3 +1,4 @@
+/* Necessario devido a validação se o mapa foi carregado */
 document.addEventListener('DOMContentLoaded', () => {
     class City {
         constructor(name, lat, lon) {
@@ -48,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
         }else{
             apiUrl = `https://api.hgbrasil.com/weather?woeid=${woeid}`;
-            console.log(apiUrl)
         }
 
+        /* Necessário devido ao bloqueio de CORS */
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         return proxyUrl + apiUrl;
     }
@@ -158,7 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
             /* Chamada da OpenWeatherApi */
             /* Instrução await para aguardar as informações importantes para prosseguimento da função */
             const CityInformations = await CallAPIInformations(geoLocationUrl);
-
+            if(CityInformations == [])
+                console.log("aaa")
             /* Criação do objeto cidade  */
             const city = new City(CityInformations[0].name, CityInformations[0].lat, CityInformations[0].lon)
             
@@ -176,8 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }catch(error){
             /* Em caso de erro será exibido um popup de erro */
-            displayErrorMessage(error.message);
-            console.error('Erro ao buscar cidade:', error);
+            displayErrorMessage(`Erro ao buscar cidade: ${error.message}`);
         }
 
         /* Funções para fechar o modal de informações */
